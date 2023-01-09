@@ -7,6 +7,10 @@ export const Header = () => {
         <Link to='/'>
             Home
         </Link>
+        <br />
+        <Link to='/reviews'>
+            Reviews
+        </Link>
         </main>
     )
 }
