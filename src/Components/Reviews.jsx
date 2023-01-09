@@ -4,14 +4,17 @@ import { getReviews } from "../apis"
 
 export const ReviewList = () => {
     const [reviews, setReviews]= useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=> {
         getReviews().then((reviewList) => {
             setReviews(reviewList.reviews)
+            setIsLoading(false)
         })
     }, [])
 
-
+if(isLoading === true) {return <p>Loading...</p>}
+else {
     return (
         <main>
             {reviews.map(({title, designer, votes,review_id, owner, comment_count}) => {
@@ -39,4 +42,4 @@ export const ReviewList = () => {
         </main>
     )
 
-}
+}}
