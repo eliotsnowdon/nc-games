@@ -1,6 +1,7 @@
 import {useEffect} from "react"
 import { useState } from "react"
 import { getReviews } from "../apis"
+import { Link } from "react-router-dom"
 
 export const ReviewList = () => {
     const [reviews, setReviews]= useState([])
@@ -18,9 +19,11 @@ else {
     return (
         <main>
             {reviews.map(({title, designer, votes,review_id, owner, comment_count}) => {
-                return <ul>
+                 return <ul>
                     <li>
+                    <Link to= {`/reviews/${review_id}`}>
                     Title:{title}
+                    </Link>
                     </li>
                     <li>
                     Designer:{designer}
@@ -42,4 +45,4 @@ else {
         </main>
     )
 
-}}
+    }}
