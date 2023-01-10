@@ -6,6 +6,7 @@ import { Header } from './Components/Header';
 import { Home } from './Components/Home';
 import { ReviewList } from './Components/Reviews';
 import { SingleReview } from './Components/SingleReview';
+import { Comments } from './Components/Comments';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/reviews' element={<ReviewList />}></Route>
         <Route path='/reviews/:review_id' element={<SingleReview />}></Route>
+        <Route path='/reviews/:review_id/comments' element={<Comments />}></Route>
       </Routes>
     </div>
   );
