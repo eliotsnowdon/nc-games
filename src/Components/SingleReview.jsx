@@ -20,7 +20,7 @@ export const SingleReview = () => {
     if(isLoading === true) {return <p>Loading...</p>}
     else {
     return (
-        <div className="singleReview">
+        <main className="singleReview">
             <h2>Review</h2>
             {review.map(({review_body,title,votes,review_id}) => {
                 return (
@@ -32,7 +32,7 @@ export const SingleReview = () => {
                 )
             })}
             <Comments />
-        </div>
+        </main>
         
        
     )

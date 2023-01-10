@@ -14,22 +14,21 @@ export const Comments = () => {
             setIsLoading(false)
         })
     }, [item_no])
-    console.log(comment)
+
     if(isLoading === true) {return <p>Loading...</p>}
     else if(comment.length != 0){
     return (
-        <main className="Comments">
+        <section className="Comments">
+     <p>Comments:</p>
         {comment.map(({comment_id,author,body}) => {
             return (
                 <ul>
-                    <p>Comments:</p>
                     <li>Author: {author}</li>
                     <li>{body}</li>
-                    <li>Comment ID: {comment_id}</li>
                 </ul>
             )
         })}
-        </main>
+        </section>
     )
 }
 else {
