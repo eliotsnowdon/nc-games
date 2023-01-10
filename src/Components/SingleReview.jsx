@@ -18,7 +18,7 @@ export const SingleReview = () => {
     if(isLoading === true) {return <p>Loading...</p>}
     else {
     return (
-        <main>
+        <main className="singleReview">
             <h2>Review</h2>
             {review.map(({review_body}) => {
                 return (

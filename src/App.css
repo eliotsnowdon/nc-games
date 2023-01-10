@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.singleReview {
+  padding: 70px 0;
+  border: 3px solid green;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
