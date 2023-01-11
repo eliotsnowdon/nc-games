@@ -29,3 +29,11 @@ export const patchVotes = (review_id, increment) => {
         return result.data
     })
 }
+
+export const postComment = (review_id, comment) => {
+    return myApi.post(`/reviews/${review_id}/comments`, {
+        body: comment
+    }).then((result) => {
+        result.data
+    })
+}
