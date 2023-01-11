@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { getSingleReview } from "../apis";
 import { Comments } from "./Comments";
-import { Link } from "react-router-dom";
+import  Votes  from "./Votes"
 
 export const SingleReview = () => {
     const [review, setReview] = useState([]);
@@ -27,7 +27,7 @@ export const SingleReview = () => {
                     <ul>
                     <h3>Title: {title} </h3>
                     <li>{review_body}</li>
-                    <li>Votes: {votes}</li>
+                    <li><Votes votes={votes} review_id={review_id} /></li>
                     </ul>
                 )
             })}

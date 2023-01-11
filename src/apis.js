@@ -20,3 +20,12 @@ export const getComments = (review_id) => {
         return result.data;
     })
 }
+
+export const patchVotes = (review_id, increment) => {
+    return myApi.patch(`/reviews/${review_id}`, {
+        voteInc: increment
+    })
+    .then((result) => {
+        return result.data
+    })
+}
