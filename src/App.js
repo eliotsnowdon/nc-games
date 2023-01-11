@@ -6,7 +6,6 @@ import { Header } from './Components/Header';
 import { Home } from './Components/Home';
 import { ReviewList } from './Components/Reviews';
 import { SingleReview } from './Components/SingleReview';
-import { Comments } from './Components/Comments';
 
 function App() {
   return (
