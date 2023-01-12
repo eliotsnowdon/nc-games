@@ -2,13 +2,12 @@ import { Link } from "react-router-dom"
 
 export const Header = () => {
     return (
-        <main>
+        <main className="Header">
         <h1> NC Games </h1>
-        <Link to='/'>
+        <Link to='/' className="HomeLink">
             Home
         </Link>
-        <br />
-        <Link to='/reviews'>
+        <Link to='/reviews' className="ReviewLink">
             Reviews
         </Link>
         </main>
