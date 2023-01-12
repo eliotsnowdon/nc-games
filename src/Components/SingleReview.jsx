@@ -24,10 +24,10 @@ export const SingleReview = () => {
             <h2>Review</h2>
             {review.map(({review_body,title,votes,review_id}) => {
                 return (
-                    <ul>
-                    <h3>Title: {title} </h3>
-                    <li>{review_body}</li>
-                    <li><Votes votes={votes} review_id={review_id} /></li>
+                    <ul key={title}>
+                    <h3 >Title: {title} </h3>
+                    <li >{review_body}</li>
+                    <li ><Votes votes={votes} review_id={review_id} /></li>
                     </ul>
                 )
             })}

@@ -20,24 +20,24 @@ else {
         <main>
             {reviews.map(({title, designer, votes,review_id, owner, comment_count}) => {
                  return <ul>
-                    <li>
+                    <li key={title}>
                     <Link to= {`/reviews/${review_id}`}>
                     Title:{title}
                     </Link>
                     </li>
-                    <li>
+                    <li key={designer}>
                     Designer:{designer}
                     </li>
-                    <li>
+                    <li key={votes}>
                     Votes:{votes}
                     </li>
-                    <li>
+                    <li key={review_id}>
                     Review id:{review_id}
                     </li>
-                    <li>
+                    <li key={owner}>
                     Owner: {owner}
                     </li>
-                    <li>
+                    <li key={comment_count}>
                     Comment Count: {comment_count}
                     </li>
                 </ul>

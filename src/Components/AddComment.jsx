@@ -4,7 +4,7 @@ import { postComment } from "../apis"
 
 export const AddComment = ({setComment, review_id}) => {
     const [commentChange, setCommentChange] = useState("");
-    console.log(commentChange)
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,12 +18,19 @@ export const AddComment = ({setComment, review_id}) => {
         }
         setComment((currComments) => {
             return [comment, ...currComments]
-        })
-        postComment(review_id, commentChange).then(() => {
+              }
+)
+      postComment(review_id, commentChange).then(() => {
             setCommentChange("")
         }).catch((err) => {
             setComment((currComments)=> {
-                return currComments.shift()
+                return (
+                    <section>
+                    <p>Failed to upload</p>
+                    {currComments.shift()}
+                    </section>
+                   
+                    )
             })
         })
     }
@@ -31,7 +38,7 @@ export const AddComment = ({setComment, review_id}) => {
     return (
         <section className="addComment">
             <form onSubmit={handleSubmit}>
-<textarea
+<textarea required
     value={commentChange}
     onChange={(e) => setCommentChange(e.target.value)}
 ></textarea>

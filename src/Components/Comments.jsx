@@ -25,11 +25,11 @@ export const Comments = () => {
         <section className="Comments">
             <AddComment setComment ={setComment} review_id={item_no.review_id}/>
      <p>Comments:</p>
-        {comment.map(({author,body}) => {
+        {comment.map(({author,body,comment_id}) => {
             return (
-                <ul>
-                    <li>Author: {author}</li>
-                    <li>{body}</li>
+                <ul key ={comment_id}>
+                    <li >Author: {author}</li>
+                    <li >{body}</li>
                 </ul>
             )
         })}
