@@ -71,3 +71,11 @@ padding: 5px;
   border: solid #000000 1px;
   margin: auto;
 }
+
+.addComment {
+  color: green;
+}
+
+.failedComment {
+  color: red;
+}

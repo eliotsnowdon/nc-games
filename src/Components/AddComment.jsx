@@ -4,7 +4,9 @@ import { postComment } from "../apis"
 
 export const AddComment = ({setComment, review_id}) => {
     const [commentChange, setCommentChange] = useState("");
-    
+    const [buttonDisabled, setButtonDisabled] = useState(false)
+    const [success, setSuccess] = useState("")
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,29 +22,40 @@ export const AddComment = ({setComment, review_id}) => {
             return [comment, ...currComments]
               }
 )
+setButtonDisabled(true)
       postComment(review_id, commentChange).then(() => {
             setCommentChange("")
+            setSuccess("addComment")
+            setButtonDisabled(false)
         }).catch((err) => {
             setComment((currComments)=> {
+                setCommentChange("Failed retry")
                 return (
-                    <section>
-                    <p>Failed to upload</p>
-                    {currComments.shift()}
-                    </section>
-                   
+                    currComments.shift()
                     )
             })
+            setSuccess("failedComment")
+            setButtonDisabled(false)
         })
     }
 
+
+    {if(buttonDisabled === true){
     return (
-        <section className="addComment">
+            <section>
+                <p>Uploading....</p>
+            </section>
+        )
+    }}
+
+   return (
+        <section className="addCommentForm">
             <form onSubmit={handleSubmit}>
-<textarea required
+<textarea className={success}required
     value={commentChange}
     onChange={(e) => setCommentChange(e.target.value)}
 ></textarea>
-<button className="submitButton">Add Comment</button>
+<button id="addButton" disabled={buttonDisabled} className={success}>Add Comment</button>
 </form>
         </section>
     )
