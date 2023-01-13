@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { getComments } from "../apis";
+import { AddComment } from "./AddComment";
 
 export const Comments = () => {
     const [comment, setComment] = useState([]);
@@ -15,16 +16,20 @@ export const Comments = () => {
         })
     }, [item_no])
 
-    if(isLoading === true) {return <p>Loading...</p>}
-    else if(comment.length != 0){
+    if(isLoading === true) {return (
+    <section>
+    <p>Loading...</p>
+    </section>)}
+    else if(comment.length !== 0){
     return (
         <section className="Comments">
+            <AddComment setComment ={setComment} review_id={item_no.review_id}/>
      <p>Comments:</p>
-        {comment.map(({comment_id,author,body}) => {
+        {comment.map(({author,body,comment_id}) => {
             return (
-                <ul>
-                    <li>Author: {author}</li>
-                    <li>{body}</li>
+                <ul key ={comment_id}>
+                    <li >Author: {author}</li>
+                    <li >{body}</li>
                 </ul>
             )
         })}
@@ -33,7 +38,11 @@ export const Comments = () => {
 }
 else {
     return (
-        <p>No Comments</p>
+        <section>
+            <AddComment setComment ={setComment} review_id={item_no.review_id}/>
+            <p>No Comments</p>
+        </section>
+        
     )
 }
 }

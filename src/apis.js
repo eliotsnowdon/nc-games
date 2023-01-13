@@ -31,9 +31,11 @@ export const patchVotes = (review_id, increment) => {
 }
 
 export const postComment = (review_id, comment) => {
-    return myApi.post(`/reviews/${review_id}/comments`, {
+    const sent = {
+        username: 'jessjelly',
         body: comment
-    }).then((result) => {
-        result.data
+    }
+    return myApi.post(`/reviews/${review_id}/comments`, sent).then((result) => {
+        return result.data.comment
     })
 }
